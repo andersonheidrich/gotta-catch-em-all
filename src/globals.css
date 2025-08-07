@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  color: #131a2a;
+  background-color: #fff;
+}
+
+button {
+  background-color: none;
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: unset;
+}
+
+a:visited {
+  color: inherit;
+}
+
+*::selection {
+  background-color: #ed6104;
+  color: #ffffff;
+}
