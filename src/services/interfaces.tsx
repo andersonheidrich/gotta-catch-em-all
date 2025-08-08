@@ -1,9 +1,7 @@
 export interface PokemonData {
   id: number;
   name: string;
-  sprites: {
-    front_default: string;
-  };
+  sprite: string;
   types: {
     slot: number;
     type: {
@@ -11,4 +9,5 @@ export interface PokemonData {
       url: string;
     };
   }[];
+  url: string;
 }
