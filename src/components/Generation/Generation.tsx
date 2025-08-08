@@ -17,7 +17,7 @@ const Generation = () => {
   };
 
   return (
-    <div className="grid grid-cols-[repeat(6,200px)] place-items-center gap-[16px] justify-center items-center bg-[#ffffffd1] py-[64px]">
+    <div className="grid grid-cols-[repeat(6,200px)] py-[64px] place-items-center gap-[16px] justify-center items-center bg-[#ffffff]">
       {pokemonList.map((poke) => (
         <PokemonCard
           key={poke.name}
