@@ -1,11 +1,7 @@
-import { Generation } from "./components";
+import AppRoutes from "./routes";
 
-function App() {
-  return (
-    <div>
-      <Generation />
-    </div>
-  );
-}
+const App = () => {
+  return <AppRoutes />;
+};
 
 export default App;
