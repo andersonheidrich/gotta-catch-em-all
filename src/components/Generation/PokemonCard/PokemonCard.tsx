@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { getTypeColor } from "../../../utils";
 import type { PokemonCardProps } from "./interfaces";
 
@@ -5,7 +6,9 @@ const PokemonCard = ({ id, name, sprite, types }: PokemonCardProps) => {
   return (
     <div className="mb-[40px]">
       <div className="flex flex-col w-[200px] h-[200px] justify-center items-center bg-[#F2F2F2] rounded-[8px] cursor-pointer hover:scale-103 transition-transform duration-250">
-        <img className="w-full" src={sprite} alt={name} />
+        <Link to={`/${name.toLowerCase()}`}>
+          <img className="w-full" src={sprite} alt={name} />
+        </Link>
       </div>
       <div className="flex flex-col">
         <p className="font-bold pt-[4px]">

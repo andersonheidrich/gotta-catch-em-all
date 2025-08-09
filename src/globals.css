@@ -30,9 +30,9 @@ button {
 }
 
 a {
-  /* text-decoration: none;
+  text-decoration: none;
   outline: none;
-  color: unset; */
+  color: unset;
 }
 
 a:visited {

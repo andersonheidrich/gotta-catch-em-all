@@ -19,6 +19,26 @@ export const usePokemon = (nameOrId: string): UsePokemonResult => {
       try {
         const response = await pokeAPI.get(`pokemon/${nameOrId}`);
         setPokemon(response.data);
+
+        const sprite =
+          response.data.sprites.other?.["official-artwork"]?.front_default ||
+          response.data.sprites.other?.home?.front_default ||
+          response.data.sprites.front_default ||
+          "";
+
+        const formattedData: PokemonData = {
+          id: response.data.id,
+          name: response.data.name,
+          sprite,
+          types: response.data.types,
+          height: response.data.height,
+          weight: response.data.weight,
+          abilities: response.data.abilities,
+          stats: response.data.stats,
+          url: response.data.url,
+        };
+
+        setPokemon(formattedData);
       } catch (error: any) {
         setError(error);
       } finally {
