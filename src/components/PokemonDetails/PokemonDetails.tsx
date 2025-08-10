@@ -17,6 +17,7 @@ const PokemonDetails = () => {
     );
   }
 
+  const typeColor = getTypeColor(pokemon.types[0].type.name);
   // quebrar em vários componentes
 
   return (
@@ -39,6 +40,10 @@ const PokemonDetails = () => {
           <div className="flex w-[600px] justify-center items-center">
             <img
               className="flex w-[400px] h-[400px] bg-[#F2F2F2] rounded-[8px]"
+              style={{
+                // background: `radial-gradient(circle, white 60%, ${typeColor} 100%)`,
+                background: `${typeColor}`,
+              }}
               src={pokemon.sprite}
               alt={pokemon.name}
             />

@@ -1,9 +1,9 @@
-import { Generation } from "../components";
+import { Pokedex } from "../components";
 
 const Home = () => {
   return (
     <>
-      <Generation />
+      <Pokedex />
     </>
   );
 };

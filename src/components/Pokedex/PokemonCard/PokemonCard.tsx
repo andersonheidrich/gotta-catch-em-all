@@ -3,9 +3,18 @@ import { getTypeColor } from "../../../utils";
 import type { PokemonCardProps } from "./interfaces";
 
 const PokemonCard = ({ id, name, sprite, types }: PokemonCardProps) => {
+  const typeColor = getTypeColor(types[0].type.name);
+
   return (
     <div className="mb-[40px]">
-      <div className="flex flex-col w-[200px] h-[200px] justify-center items-center bg-[#F2F2F2] rounded-[8px] cursor-pointer hover:scale-103 transition-transform duration-250">
+      {/* <div className="flex flex-col w-[200px] h-[200px] justify-center items-center bg-[#F2F2F2] rounded-[8px] cursor-pointer hover:scale-103 transition-transform duration-250"> */}
+      <div
+        className="flex flex-col w-[200px] h-[200px] justify-center items-center rounded-[8px] cursor-pointer hover:scale-103 transition-transform duration-250"
+        style={{
+          // background: `radial-gradient(circle, white 60%, ${typeColor} 100%)`,
+          background: `${typeColor}`,
+        }}
+      >
         <Link to={`/${name.toLowerCase()}`}>
           <img className="w-full" src={sprite} alt={name} />
         </Link>

@@ -43,3 +43,8 @@ a:visited {
   /* background-color: #ed6104;
   color: #ffffff; */
 }
+
+ul,
+ol {
+  list-style: none;
+}

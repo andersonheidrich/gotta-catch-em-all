@@ -1,16 +1,15 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./page/Home";
-import { PokemonDetails } from "./components";
+import { Pokedex, PokemonDetails } from "./components";
 
 const AppRoutes = () => {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/:name" element={<PokemonDetails />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pokedex" element={<Pokedex />} />
+        <Route path="/:name" element={<PokemonDetails />} />
+      </Routes>
     </>
   );
 };

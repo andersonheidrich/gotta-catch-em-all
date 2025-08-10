@@ -2,7 +2,7 @@
 import { useGeneration } from "../../hooks";
 import PokemonCard from "./PokemonCard";
 
-const Generation = () => {
+const Pokedex = () => {
   // const [selectedGen, setSelectedGen] = useState(1);
   const { pokemonList } = useGeneration(1);
 
@@ -17,7 +17,7 @@ const Generation = () => {
   };
 
   return (
-    <div className="grid grid-cols-[repeat(6,200px)] py-[64px] place-items-center gap-[16px] justify-center items-center bg-[#ffffff]">
+    <div className="grid grid-cols-[repeat(6,200px)] pt-[154px] pb-[64px] place-items-center gap-[16px] justify-center items-center bg-[#ffffff]">
       {pokemonList.map((poke) => (
         <PokemonCard
           key={poke.name}
@@ -31,4 +31,4 @@ const Generation = () => {
   );
 };
 
-export default Generation;
+export default Pokedex;
