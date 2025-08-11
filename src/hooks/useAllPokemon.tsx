@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import { pokeAPI } from "../services/pokeAPI";
-import type { PokemonData } from "../services/interfaces";
+import type { PokemonData } from "@/types/pokemon";
 
-export const useGeneration = (generationId: number) => {
+export const useAllPokemon = (generationId: number) => {
   const [pokemonList, setPokemonList] = useState<PokemonData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchGeneration = async () => {
+    const fetchAllPokemon = async () => {
       setLoading(true);
       try {
         // 1. Buscar pokémons da geração
@@ -31,6 +31,11 @@ export const useGeneration = (generationId: number) => {
                 name: res.data.name,
                 sprite,
                 types: res.data.types,
+                height: res.data.height,
+                weight: res.data.weight,
+                abilities: res.data.abilities,
+                stats: res.data.stats,
+                url: res.data.url,
               };
             } catch {
               return null;
@@ -51,7 +56,7 @@ export const useGeneration = (generationId: number) => {
       }
     };
 
-    fetchGeneration();
+    fetchAllPokemon();
   }, [generationId]);
 
   return { pokemonList, loading, error };

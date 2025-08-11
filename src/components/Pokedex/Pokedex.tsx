@@ -1,10 +1,10 @@
 // import { useState } from "react";
-import { useGeneration } from "../../hooks";
+import { useAllPokemon } from "@/hooks";
 import PokemonCard from "./PokemonCard";
 
 const Pokedex = () => {
   // const [selectedGen, setSelectedGen] = useState(1);
-  const { pokemonList } = useGeneration(1);
+  const { pokemonList } = useAllPokemon(1);
 
   // const numberOfGenerations = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 

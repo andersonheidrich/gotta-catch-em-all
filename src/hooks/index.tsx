@@ -1,2 +1,2 @@
-export { useGeneration } from "./useGeneration";
+export { useAllPokemon } from "./useAllPokemon";
 export { usePokemon } from "./usePokemon";
