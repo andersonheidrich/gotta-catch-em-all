@@ -33,6 +33,7 @@ a {
   text-decoration: none;
   outline: none;
   color: unset;
+  display: flex;
 }
 
 a:visited {
