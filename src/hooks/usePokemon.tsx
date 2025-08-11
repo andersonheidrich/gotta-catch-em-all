@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import { pokeAPI } from "../services/pokeAPI";
-import type { PokemonData } from "../services/interfaces";
+import type { PokemonData } from "@/types/pokemon";
 
 interface UsePokemonResult {
   pokemon: PokemonData | null;

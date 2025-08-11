@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { getTypeColor } from "../../../utils";
+import { getTypeColor } from "@/utils";
 import type { PokemonCardProps } from "./interfaces";
 
 const PokemonCard = ({ id, name, sprite, types }: PokemonCardProps) => {
