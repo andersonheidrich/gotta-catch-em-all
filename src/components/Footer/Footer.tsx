@@ -4,7 +4,7 @@ import EmailIcon from "@mui/icons-material/Email";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col w-full p-[64px] items-center">
+    <footer className="flex flex-col w-full p-[64px] items-center">
       <h1>CONTATO</h1>
       <div className="flex w-full justify-around pt-[64px] px-[64px]">
         <div className="flex flex-col items-center w-[240px]">
@@ -34,7 +34,7 @@ const Footer = () => {
           <span>andersonheidrichleite@gmail.com</span>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
