@@ -28,7 +28,7 @@ const PokemonDetails = () => {
   const typeColor = getTypeColor(pokemon.types[0].type.name);
 
   return (
-    <div className="flex w-full h-screen justify-center items-center">
+    <div className="flex w-full h-full justify-center items-center">
       <div className="flex flex-col w-[860px] h-[680px]">
         <PokemonNavigation />
         <PokemonHeader id={pokemon.id} name={pokemon.name} />
