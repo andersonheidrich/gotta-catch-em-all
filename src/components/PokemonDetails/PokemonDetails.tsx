@@ -44,8 +44,8 @@ const PokemonDetails = () => {
             alt={pokemon.name}
             background={typeColor}
           />
-          <div className="flex w-[300px] md:w-[420px] justify-center items-center">
-            <div className="flex flex-col w-full justify-between">
+          <div className="flex w-[300px] md:w-[440px] justify-center items-center">
+            <div className="flex flex-col w-full justify-between h-auto md:h-[440px]">
               <PokemonStats stats={pokemon.stats} />
               <PokemonTypes types={pokemon.types} />
               <PokemonInfo
