@@ -6,7 +6,6 @@ import {
   PokemonHeader,
   PokemonImage,
   PokemonInfo,
-  PokemonNavigation,
   PokemonStats,
   PokemonTypes,
 } from "./components";
@@ -28,18 +27,17 @@ const PokemonDetails = () => {
   const typeColor = getTypeColor(pokemon.types[0].type.name);
 
   return (
-    <div className="flex w-full h-full justify-center items-center">
-      <div className="flex flex-col w-[860px] h-[680px]">
-        <PokemonNavigation />
+    <div className="flex flex-col w-full lg:h-full justify-center items-center bg-black pt-[124px] lg:pt-[0] pb-[32px] lg:pb-[0]">
+      <div className="bg-white p-[4px] md:p-[16px] rounded-[8px]">
         <PokemonHeader id={pokemon.id} name={pokemon.name} />
-        <div className="flex w-full h-[800px]">
+        <div className="flex flex-col lg:flex-row w-full justify-center items-center gap-[16px]">
           <PokemonImage
             src={pokemon.sprite}
             alt={pokemon.name}
             background={typeColor}
           />
-          <div className="flex w-[600px] justify-center items-center">
-            <div className="flex flex-col h-[400px] justify-between">
+          <div className="flex w-[300px] md:w-[420px] justify-center items-center">
+            <div className="flex flex-col w-full justify-between">
               <PokemonStats stats={pokemon.stats} />
               <PokemonTypes types={pokemon.types} />
               <PokemonInfo

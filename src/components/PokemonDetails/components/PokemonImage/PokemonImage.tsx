@@ -2,14 +2,12 @@ import type { PokemonImageProps } from "./interfaces";
 
 const PokemonImage = ({ src, alt, background }: PokemonImageProps) => {
   return (
-    <div className="flex w-[600px] justify-center items-center">
-      <img
-        className="flex w-[400px] h-[400px] rounded-[8px]"
-        style={{ background }}
-        src={src}
-        alt={alt}
-      />
-    </div>
+    <img
+      className="flex w-[300] md:w-[420px] h-[300px] md:h-[420px] rounded-[8px]"
+      style={{ background }}
+      src={src}
+      alt={alt}
+    />
   );
 };
 

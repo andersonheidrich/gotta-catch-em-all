@@ -1,7 +1,8 @@
 import type { ButtonProps } from "./interfaces";
 
 const Button = ({ children, className, ...rest }: ButtonProps) => {
-  const baseClasses = "w-[64px] h-[32px] px-[16px] py-[8px] cursor-pointer";
+  const baseClasses =
+    "w-full h-[64px] justify-between items-center cursor-pointer";
 
   return (
     <button className={`${baseClasses} ${className}`} {...rest}>

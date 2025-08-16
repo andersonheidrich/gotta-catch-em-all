@@ -4,9 +4,9 @@ import EmailIcon from "@mui/icons-material/Email";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col w-full p-[64px] items-center">
-      <h1>CONTATO</h1>
-      <div className="flex w-full justify-around pt-[64px] px-[64px]">
+    <footer className="flex flex-col w-full p-[32px] lg:p-[64px] items-center">
+      <div className="font-bold text-[32px]">CONTATO</div>
+      <div className="flex flex-col lg:flex-row w-full justify-around items-center pt-[64px] px-[64px]">
         <div className="flex flex-col items-center w-[240px]">
           <a
             href="https://www.linkedin.com/in/andersonheidrich/"
