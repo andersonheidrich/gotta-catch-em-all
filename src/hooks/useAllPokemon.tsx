@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { pokeAPI } from "../services/pokeAPI";
 import type { PokemonData } from "@/types/pokemon";
 
-export const useAllPokemon = (generationId: number) => {
+export const useAllPokemon = (generationId: number | "all") => {
   const [pokemonList, setPokemonList] = useState<PokemonData[]>([]);
   const [visibleCount, setVisibleCount] = useState(20);
   const [loading, setLoading] = useState(true);
@@ -14,11 +14,16 @@ export const useAllPokemon = (generationId: number) => {
     const fetchAllPokemon = async () => {
       setLoading(true);
       try {
-        // 1. Buscar pokémons da geração
-        const response = await pokeAPI.get(`generation/${generationId}`);
-        const species = response.data.pokemon_species;
+        let species: any[] = [];
 
-        // 2. Buscar detalhes (com sprite) para cada um
+        if (generationId === "all") {
+          const response = await pokeAPI.get("pokemon?limit=1025");
+          species = response.data.results;
+        } else {
+          const response = await pokeAPI.get(`generation/${generationId}`);
+          species = response.data.pokemon_species;
+        }
+
         const detailed = await Promise.all(
           species.map(async (poke: any) => {
             try {
@@ -45,7 +50,6 @@ export const useAllPokemon = (generationId: number) => {
           })
         );
 
-        // Remover nulls e ordenar por nome
         const validPokemons = detailed
           .filter(Boolean)
           .sort((a, b) => a!.id - b!.id) as PokemonData[];

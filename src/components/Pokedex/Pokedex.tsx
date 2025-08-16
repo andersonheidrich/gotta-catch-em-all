@@ -1,15 +1,15 @@
+import { useState } from "react";
 import { useAllPokemon } from "@/hooks";
 import PokemonCard from "./PokemonCard";
 import "./styles.css";
+import { GenerationFilter } from "@/components";
 
 const Pokedex = () => {
-  // const [selectedGen, setSelectedGen] = useState(1);
+  const [selectedGen, setSelectedGen] = useState<number | "all">("all");
   const { pokemonList, loading, error, visibleCount, loadMoreRef, hasMore } =
-    useAllPokemon(1);
+    useAllPokemon(selectedGen);
 
   const visiblePokemon = pokemonList.slice(0, visibleCount);
-
-  // const numberOfGenerations = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   if (loading)
     return (
@@ -22,8 +22,9 @@ const Pokedex = () => {
     );
 
   return (
-    <div className="flex pt-[154px] pb-[64px] justify-center items-center bg-black">
-      <div className="pokedex-grid bg-white rounded-[8px]">
+    <div className="flex flex-col pt-[124px] pb-[64px] justify-center items-center">
+      <GenerationFilter selectedGen={selectedGen} onChange={setSelectedGen} />
+      <div className="pokedex-grid rounded-[8px]">
         {visiblePokemon.map((poke) => (
           <div key={poke.name} className="w-[200px]">
             <PokemonCard

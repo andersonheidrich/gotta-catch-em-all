@@ -7,7 +7,7 @@ import { useAllPokemon } from "@/hooks";
 
 const PokemonHeader = ({ id, name }: PokemonHeaderProps) => {
   const navigate = useNavigate();
-  const { pokemonList } = useAllPokemon(1);
+  const { pokemonList } = useAllPokemon("all");
 
   const currentIndex = pokemonList.findIndex((p) => p.id === id);
 

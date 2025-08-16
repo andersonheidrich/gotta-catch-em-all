@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useAllPokemon } from "@/hooks";
 import PokemonRow from "./PokemonRow";
+import { GenerationFilter } from "@/components";
 
 const PokemonList = () => {
+  const [selectedGen, setSelectedGen] = useState<number | "all">("all");
   const { pokemonList, loading, error, visibleCount, loadMoreRef, hasMore } =
-    useAllPokemon(1);
+    useAllPokemon(selectedGen);
 
   const visiblePokemon = pokemonList.slice(0, visibleCount);
 
@@ -18,8 +21,9 @@ const PokemonList = () => {
     );
 
   return (
-    <div className="flex w-full pt-[154px] pb-[64px] justify-center items-center">
-      <div className="overflow-x-auto w-full max-w-[1344px] mx-[16px] justify-center">
+    <div className="flex flex-col w-full pt-[124px] pb-[64px] justify-center items-center">
+      <GenerationFilter selectedGen={selectedGen} onChange={setSelectedGen} />
+      <div className="overflow-x-auto w-full max-w-[1344px] mx-4 mt-3 justify-center">
         <table>
           <thead className="border-y border-[#cacaca] bg-[#EBEBEB]">
             <tr className="flex py-[16px] justify-start">

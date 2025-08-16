@@ -1,4 +1,4 @@
-import { Pokeball } from "@/components";
+import Pokeball from "./Pokeball";
 import GottaCatchEmAll from "../images/gottacatchemall.png";
 
 const Home = () => {
