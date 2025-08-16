@@ -17,12 +17,18 @@ const PokemonDetails = () => {
   const pokemon = pokemonList.find((p) => p.name === name);
 
   if (loading) {
-    return <p className="text-center mt-8">Carregando...</p>;
+    return (
+      <p className="flex h-full justify-center items-center">
+        Carregando Pokémon...
+      </p>
+    );
   }
 
   if (error || !pokemon) {
     return (
-      <p className="text-center mt-8 text-red-500">Erro ao carregar Pokémon.</p>
+      <p className="flex h-full justify-center items-center">
+        Erro ao carregar Pokémon.
+      </p>
     );
   }
 
