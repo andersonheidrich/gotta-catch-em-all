@@ -20,5 +20,5 @@ export const getTypeColor = (type: string): string => {
     fairy: "#D685AD",
   };
 
-  return colors[type] || "#777"; // fallback se tipo não for reconhecido
+  return colors[type] || "#777";
 };

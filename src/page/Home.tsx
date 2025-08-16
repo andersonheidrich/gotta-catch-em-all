@@ -1,8 +1,10 @@
 import { Pokeball } from "@/components";
+import GottaCatchEmAll from "../images/gottacatchemall.png";
 
 const Home = () => {
   return (
-    <div className="flex min-h-screen pt-[154px] pb-[64px] justify-center items-center">
+    <div className="flex flex-col min-h-screen justify-center items-center bg-[#ffde00]">
+      <img src={GottaCatchEmAll} className="w-[280px] md:w-[400px] h-auto" />
       <Pokeball />
     </div>
   );

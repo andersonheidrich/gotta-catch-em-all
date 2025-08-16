@@ -1,12 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { pokeAPI } from "../services/pokeAPI";
 import type { PokemonData } from "@/types/pokemon";
 
 export const useAllPokemon = (generationId: number) => {
   const [pokemonList, setPokemonList] = useState<PokemonData[]>([]);
+  const [visibleCount, setVisibleCount] = useState(20);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const fetchAllPokemon = async () => {
@@ -59,5 +61,33 @@ export const useAllPokemon = (generationId: number) => {
     fetchAllPokemon();
   }, [generationId]);
 
-  return { pokemonList, loading, error };
+  useEffect(() => {
+    if (!loadMoreRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setVisibleCount((prev) => Math.min(prev + 20, pokemonList.length));
+        }
+      },
+      {
+        root: null,
+        rootMargin: "100px",
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(loadMoreRef.current);
+    return () => observer.disconnect();
+  }, [pokemonList]);
+
+  return {
+    pokemonList,
+    visibleCount,
+    loading,
+    error,
+    loadMoreRef,
+    hasMore: visibleCount < pokemonList.length,
+  };
 };
