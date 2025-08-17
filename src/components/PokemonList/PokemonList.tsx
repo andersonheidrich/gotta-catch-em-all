@@ -10,16 +10,6 @@ const PokemonList = () => {
 
   const visiblePokemon = pokemonList.slice(0, visibleCount);
 
-  if (loading)
-    return (
-      <p className="flex h-full justify-center items-center">Carregando...</p>
-    );
-
-  if (error)
-    return (
-      <p className="flex h-full justify-center items-center">Erro: {error}</p>
-    );
-
   return (
     <div className="flex flex-col w-full pt-[124px] pb-[64px] justify-center items-center">
       <GenerationFilter selectedGen={selectedGen} onChange={setSelectedGen} />
@@ -40,16 +30,28 @@ const PokemonList = () => {
             </tr>
           </thead>
           <tbody>
-            {visiblePokemon.map((poke) => (
-              <PokemonRow
-                key={poke.name}
-                id={poke.id}
-                name={poke.name}
-                sprite={poke.sprite}
-                types={poke.types}
-                stats={poke.stats}
-              />
-            ))}
+            {loading ? (
+              <div className="flex h-screen justify-center pt-64">
+                Carregando...
+              </div>
+            ) : error ? (
+              <tr>
+                <td className="flex h-full justify-center items-center">
+                  Erro: {error}
+                </td>
+              </tr>
+            ) : (
+              visiblePokemon.map((poke) => (
+                <PokemonRow
+                  key={poke.name}
+                  id={poke.id}
+                  name={poke.name}
+                  sprite={poke.sprite}
+                  types={poke.types}
+                  stats={poke.stats}
+                />
+              ))
+            )}
           </tbody>
         </table>
         {hasMore && <div ref={loadMoreRef} />}
