@@ -23,8 +23,8 @@ const PokemonList = () => {
   return (
     <div className="flex flex-col w-full pt-[124px] pb-[64px] justify-center items-center">
       <GenerationFilter selectedGen={selectedGen} onChange={setSelectedGen} />
-      <div className="overflow-x-auto w-full max-w-[1344px] mx-4 mt-3 justify-center">
-        <table>
+      <div className="overflow-x-auto w-full max-w-[1344px] mt-3 justify-center">
+        <table className="mx-4">
           <thead className="border-y border-[#cacaca] bg-[#EBEBEB]">
             <tr className="flex py-[16px] justify-start">
               <th className="flex w-[80px] ml-[48px]">#</th>
