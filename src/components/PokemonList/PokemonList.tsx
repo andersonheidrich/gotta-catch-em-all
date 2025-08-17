@@ -35,11 +35,9 @@ const PokemonList = () => {
                 Carregando...
               </div>
             ) : error ? (
-              <tr>
-                <td className="flex h-full justify-center items-center">
-                  Erro: {error}
-                </td>
-              </tr>
+              <div className="flex h-full justify-center items-center">
+                Erro: {error}
+              </div>
             ) : (
               visiblePokemon.map((poke) => (
                 <PokemonRow
