@@ -51,13 +51,17 @@ const PokemonList = () => {
           </thead>
           <tbody>
             {loading ? (
-              <div className="flex h-screen justify-center pt-64">
-                Carregando...
-              </div>
+              <tr>
+                <td className="flex h-screen justify-center pt-64">
+                  Carregando...
+                </td>
+              </tr>
             ) : error ? (
-              <div className="flex h-full justify-center items-center">
-                Erro: {error}
-              </div>
+              <tr>
+                <td className="flex h-full justify-center items-center">
+                  Erro: {error}
+                </td>
+              </tr>
             ) : (
               pokemonList
                 .slice(0, visibleCount)

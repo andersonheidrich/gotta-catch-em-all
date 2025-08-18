@@ -7,9 +7,9 @@ const Header = () => {
     { to: "/pokemon-list", label: "Pokémon List" },
   ];
 
-  // const linkClass = "hover:text-gray-300 transition-colors duration-200";
+  const linkClass = "hover:text-yellow-400 transition-colors duration-150";
 
-  // const activeClass = "text-yellow-400 font-semibold";
+  const activeClass = "text-yellow-400 font-semibold";
 
   return (
     <header
@@ -19,9 +19,17 @@ const Header = () => {
       <nav className="flex w-[320px]">
         <ul className="flex w-full justify-around">
           {navLinks.map((link) => (
-            <li key={link.to}>
-              <NavLink to={link.to}>{link.label}</NavLink>
-            </li>
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) =>
+                `${linkClass} ${
+                  isActive ? activeClass : "text-gray-700"
+                }`.trim()
+              }
+            >
+              {link.label}
+            </NavLink>
           ))}
         </ul>
       </nav>
