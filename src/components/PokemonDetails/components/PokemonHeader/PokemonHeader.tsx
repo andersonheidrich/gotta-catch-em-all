@@ -1,13 +1,24 @@
+import { useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 import type { PokemonHeaderProps } from "./interfaces";
 import Button from "@/components/Button";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { useAllPokemon } from "@/hooks";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { fetchAllPokemon } from "@/store/slices/pokemonSlice";
 
 const PokemonHeader = ({ id, name }: PokemonHeaderProps) => {
   const navigate = useNavigate();
-  const { pokemonList } = useAllPokemon("all");
+  const dispatch = useAppDispatch();
+
+  const { pokemonList } = useAppSelector((state) => state.pokemon);
+
+  useEffect(() => {
+    if (pokemonList.length === 0) {
+      dispatch(fetchAllPokemon("all"));
+    }
+  }, [dispatch, pokemonList.length]);
 
   const currentIndex = pokemonList.findIndex((p) => p.id === id);
 

@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { fetchAllPokemon } from "@/store/slices/pokemonSlice";
 import { getTypeColor } from "../../utils";
-import { useAllPokemon } from "@/hooks";
 
 import {
   PokemonHeader,
@@ -12,7 +14,17 @@ import {
 
 const PokemonDetails = () => {
   const { name } = useParams();
-  const { pokemonList, loading, error } = useAllPokemon("all");
+  const dispatch = useAppDispatch();
+
+  const { pokemonList, loading, error } = useAppSelector(
+    (state) => state.pokemon
+  );
+
+  useEffect(() => {
+    if (pokemonList.length === 0) {
+      dispatch(fetchAllPokemon("all"));
+    }
+  }, [dispatch, pokemonList.length]);
 
   const pokemon = pokemonList.find((p) => p.name === name);
 
