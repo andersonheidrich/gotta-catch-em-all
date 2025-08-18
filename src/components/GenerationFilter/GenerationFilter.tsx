@@ -5,7 +5,6 @@ const GenerationFilter = ({ selectedGen, onChange }: GenerationFilterProps) => {
 
   return (
     <div className="mb-6 flex gap-2 flex-wrap justify-center">
-      {/* Botão para "Todos" */}
       <button
         onClick={() => onChange("all")}
         className={`cursor-pointer px-4 py-2 rounded-lg shadow-sm font-bold ${
@@ -17,7 +16,6 @@ const GenerationFilter = ({ selectedGen, onChange }: GenerationFilterProps) => {
         All
       </button>
 
-      {/* Botões para cada geração */}
       {numberOfGenerations.map((gen) => (
         <button
           key={gen}

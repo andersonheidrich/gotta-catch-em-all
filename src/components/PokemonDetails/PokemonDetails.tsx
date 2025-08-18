@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { fetchAllPokemon } from "@/store/slices/pokemonSlice";
+import { fetchAllPokemon } from "@/store/slices/pokemon";
 import { getTypeColor } from "../../utils";
 
 import {
@@ -11,6 +11,7 @@ import {
   PokemonStats,
   PokemonTypes,
 } from "./components";
+import PokemonEvolutions from "./components/PokemonEvolutions";
 
 const PokemonDetails = () => {
   const { name } = useParams();
@@ -21,10 +22,8 @@ const PokemonDetails = () => {
   );
 
   useEffect(() => {
-    if (pokemonList.length === 0) {
-      dispatch(fetchAllPokemon("all"));
-    }
-  }, [dispatch, pokemonList.length]);
+    dispatch(fetchAllPokemon("all"));
+  }, [dispatch]);
 
   const pokemon = pokemonList.find((p) => p.name === name);
 
@@ -47,8 +46,8 @@ const PokemonDetails = () => {
   const typeColor = getTypeColor(pokemon.types[0].type.name);
 
   return (
-    <div className="flex flex-col w-full lg:h-full justify-center items-center pt-[124px] lg:pt-[0] pb-[32px] lg:pb-[0]">
-      <div className="p-[4px] md:p-[16px] rounded-[8px]">
+    <div className="flex flex-col w-full min-h-screen justify-center items-center pt-[124px] pb-[32px] lg:pb-[0]">
+      <div className="flex-1 flex flex-col justify-center items-center p-[4px] md:p-[16px] rounded-[8px]">
         <PokemonHeader id={pokemon.id} name={pokemon.name} />
         <div className="flex flex-col lg:flex-row w-full justify-center items-center gap-[16px]">
           <PokemonImage
@@ -68,6 +67,7 @@ const PokemonDetails = () => {
             </div>
           </div>
         </div>
+        <PokemonEvolutions name={pokemon.name} />
       </div>
     </div>
   );

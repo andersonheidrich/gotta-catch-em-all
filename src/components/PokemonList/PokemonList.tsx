@@ -1,34 +1,18 @@
-import { useState, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import {
-  fetchAllPokemon,
-  loadMore,
-  resetVisibleCount,
-} from "@/store/slices/pokemonSlice";
+import { usePokemonList } from "@/hooks/usePokemonList";
 import PokemonRow from "./PokemonRow";
 import { GenerationFilter } from "@/components";
-import { useInfiniteScroll } from "@/hooks";
 
 const PokemonList = () => {
-  const [selectedGen, setSelectedGen] = useState<number | "all">("all");
-  const dispatch = useAppDispatch();
-
-  const { pokemonList, visibleCount, loading, error } = useAppSelector(
-    (state) => state.pokemon
-  );
-
-  const hasMore = visibleCount < pokemonList.length;
-
-  useEffect(() => {
-    dispatch(resetVisibleCount());
-    dispatch(fetchAllPokemon(selectedGen));
-  }, [dispatch, selectedGen]);
-
-  const sentinelRef = useInfiniteScroll(() => {
-    if (!loading && hasMore) {
-      dispatch(loadMore());
-    }
-  });
+  const {
+    selectedGen,
+    setSelectedGen,
+    pokemonList,
+    visibleCount,
+    loading,
+    error,
+    hasMore,
+    sentinelRef,
+  } = usePokemonList();
 
   return (
     <div className="flex flex-col w-full pt-[124px] pb-[64px] justify-center items-center">
