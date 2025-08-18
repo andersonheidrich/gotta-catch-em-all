@@ -1,14 +1,34 @@
-import { useState } from "react";
-import { useAllPokemon } from "@/hooks";
+import { useState, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import {
+  fetchAllPokemon,
+  loadMore,
+  resetVisibleCount,
+} from "@/store/slices/pokemonSlice";
 import PokemonRow from "./PokemonRow";
 import { GenerationFilter } from "@/components";
+import { useInfiniteScroll } from "@/hooks";
 
 const PokemonList = () => {
   const [selectedGen, setSelectedGen] = useState<number | "all">("all");
-  const { pokemonList, loading, error, visibleCount, loadMoreRef, hasMore } =
-    useAllPokemon(selectedGen);
+  const dispatch = useAppDispatch();
 
-  const visiblePokemon = pokemonList.slice(0, visibleCount);
+  const { pokemonList, visibleCount, loading, error } = useAppSelector(
+    (state) => state.pokemon
+  );
+
+  const hasMore = visibleCount < pokemonList.length;
+
+  useEffect(() => {
+    dispatch(resetVisibleCount());
+    dispatch(fetchAllPokemon(selectedGen));
+  }, [dispatch, selectedGen]);
+
+  const sentinelRef = useInfiniteScroll(() => {
+    if (!loading && hasMore) {
+      dispatch(loadMore());
+    }
+  });
 
   return (
     <div className="flex flex-col w-full pt-[124px] pb-[64px] justify-center items-center">
@@ -39,20 +59,22 @@ const PokemonList = () => {
                 Erro: {error}
               </div>
             ) : (
-              visiblePokemon.map((poke) => (
-                <PokemonRow
-                  key={poke.name}
-                  id={poke.id}
-                  name={poke.name}
-                  sprite={poke.sprite}
-                  types={poke.types}
-                  stats={poke.stats}
-                />
-              ))
+              pokemonList
+                .slice(0, visibleCount)
+                .map((poke) => (
+                  <PokemonRow
+                    key={poke.name}
+                    id={poke.id}
+                    name={poke.name}
+                    sprite={poke.sprite}
+                    types={poke.types}
+                    stats={poke.stats}
+                  />
+                ))
             )}
           </tbody>
         </table>
-        {hasMore && <div ref={loadMoreRef} />}
+        {hasMore && <div ref={sentinelRef} />}
       </div>
     </div>
   );
