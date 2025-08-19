@@ -4,9 +4,11 @@ import { fetchPokemonEvolution } from "@/store/slices/pokemon";
 import type { PokemonEvolutionsProps } from "./interfaces";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { getTypeColor } from "@/utils";
+import { useNavigate } from "react-router-dom";
 
 const PokemonEvolutions = ({ name }: PokemonEvolutionsProps) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { evolutions, pokemonList, loading } = useAppSelector(
     (state) => state.pokemon
   );
@@ -18,25 +20,37 @@ const PokemonEvolutions = ({ name }: PokemonEvolutionsProps) => {
   }, [dispatch, name]);
 
   if (loading && evolutions.length === 0) {
-    return <p className="mt-8 text-center">Carregando evoluções...</p>;
+    return (
+      <p className="flex w-full min-h-[312px] items-center justify-center">
+        Carregando evoluções...
+      </p>
+    );
   }
 
-  if (evolutions.length <= 1) {
-    return null;
+  if (evolutions.length === 0) {
+    return (
+      <div className="flex w-full min-h-[312px] items-center justify-center">
+        <p>Sem evoluções</p>
+      </div>
+    );
   }
 
   return (
-    <div className="flex flex-col w-full p-2 mt-4 items-center bg-yellow-400 rounded-[8px] justify-center">
+    <div className="flex flex-col w-full p-2 mt-4 items-center bg-[#2b2b2b] rounded-[8px] justify-center text-white">
       <h2 className="text-xl font-bold mb-4">Evoluções</h2>
-      <div className="flex flex-col md:flex-row w-full justify-center items-center">
+      <div className="flex flex-col flex-wrap md:flex-row w-full justify-center items-center">
         {evolutions.map((evoName, i) => {
           const evo = pokemonList.find((p) => p.name === evoName);
           return (
             evo && (
               <div key={evo.id} className="flex">
-                <div className="flex flex-col justify-center items-center">
+                <div className="flex flex-col justify-center items-center mb-3">
                   <div className="flex justify-center items-center">
-                    <div className="flex w-40 h-40 justify-center items-center rounded-full border-4 border-white">
+                    <div
+                      className="flex w-40 h-40 justify-center items-center rounded-full border-4 border-white cursor-pointer hover:scale-105 transition-transform"
+                      style={{ boxShadow: "0 4px 6px rgba(0, 0, 0, 0.8)" }}
+                      onClick={() => navigate(`/${evo.name}`)}
+                    >
                       <img
                         src={evo.sprite}
                         alt={evo.name}
@@ -45,7 +59,7 @@ const PokemonEvolutions = ({ name }: PokemonEvolutionsProps) => {
                     </div>
                   </div>
                   <div className="flex flex-col justify-center items-center capitalize mt-2 gap-2 font-bold">
-                    <div>
+                    <div className="flex gap-2">
                       <span>{evo.name}</span>
                       <span>{`Nº ${evo.id.toString().padStart(4, "0")}`}</span>
                     </div>
@@ -68,7 +82,7 @@ const PokemonEvolutions = ({ name }: PokemonEvolutionsProps) => {
                   )}
                 </div>
                 {i < evolutions.length - 1 && (
-                  <span className="hidden md:flex justify-center items-center mb-14 lg:mx-16 text-white">
+                  <span className="hidden md:flex justify-center items-center mb-14 lg:mx-5 text-white">
                     <ArrowForwardIosIcon />
                   </span>
                 )}

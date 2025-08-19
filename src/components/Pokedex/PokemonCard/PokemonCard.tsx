@@ -18,15 +18,15 @@ const PokemonCard = ({ id, name, sprite, types }: PokemonCardProps) => {
         </Link>
       </div>
       <div className="flex flex-col">
-        <p className="font-bold pt-[4px]">
+        <p className="font-bold pt-[4px] text-[#A4A4A4] text-[14px]">
           Nº {id.toString().padStart(4, "0")}
         </p>
-        <p className="font-bold pt-[4px]">{name}</p>
+        <p className="font-bold pt-[4px] text-[20px]">{name}</p>
         <div className="flex pt-[4px] gap-[4px]">
           {types.map((poke) => (
             <p
               key={poke.type.name}
-              className="flex px-[4px] py-[2px] rounded-[2px] capitalize"
+              className="flex px-[4px] py-[2px] rounded-[2px] capitalize font-bold text-[12px]"
               style={{ backgroundColor: getTypeColor(poke.type.name) }}
             >
               {poke.type.name}

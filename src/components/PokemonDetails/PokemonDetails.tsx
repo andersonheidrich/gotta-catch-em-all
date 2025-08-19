@@ -46,8 +46,8 @@ const PokemonDetails = () => {
   const typeColor = getTypeColor(pokemon.types[0].type.name);
 
   return (
-    <div className="flex flex-col w-full min-h-screen justify-center items-center pt-[124px] pb-[32px] lg:pb-[0]">
-      <div className="flex-1 flex flex-col justify-center items-center p-[4px] md:p-[16px] rounded-[8px]">
+    <div className="flex flex-col w-full min-h-screen justify-center items-center pt-[124px] pb-[32px] lg:pb-[0] bg-[#2b2b2b]">
+      <div className="flex-1 flex flex-col w-auto lg:w-[896px] justify-center items-center p-[4px] md:p-[16px] rounded-[8px] bg-white lg:mb-8">
         <PokemonHeader id={pokemon.id} name={pokemon.name} />
         <div className="flex flex-col lg:flex-row w-full justify-center items-center gap-[16px]">
           <PokemonImage

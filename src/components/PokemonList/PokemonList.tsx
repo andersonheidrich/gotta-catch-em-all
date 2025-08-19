@@ -15,10 +15,10 @@ const PokemonList = () => {
   } = usePokemonList();
 
   return (
-    <div className="flex flex-col w-full pt-[124px] pb-[64px] justify-center items-center">
+    <div className="flex flex-col w-full pt-[124px] pb-[64px] justify-center items-center bg-[#2b2b2b]">
       <GenerationFilter selectedGen={selectedGen} onChange={setSelectedGen} />
-      <div className="overflow-x-auto w-full max-w-[1344px] mt-3 justify-center">
-        <table className="mx-4">
+      <div className="overflow-x-auto w-full max-w-[1344px] mt-3 justify-center bg-white rounded-[8px]">
+        <table className="m-4">
           <thead className="border-y border-[#cacaca] bg-[#EBEBEB]">
             <tr className="flex py-[16px] justify-start">
               <th className="flex w-[80px] ml-[48px]">#</th>
