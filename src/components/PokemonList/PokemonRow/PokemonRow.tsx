@@ -13,16 +13,18 @@ const PokemonRow = ({ id, name, sprite, types, stats }: PokemonRowProps) => {
           Nº {id.toString().padStart(4, "0")}
         </span>
       </td>
-      <td className="w-[256px]">
+      <td className="w-[160px]">
         <Link className="flex max-w-fit" to={`/${name.toLowerCase()}`}>
-          <span className="hover:underline">{name}</span>
+          <span className="underline font-bold hover:text-blue-700">
+            {name}
+          </span>
         </Link>
       </td>
       <td className="flex flex-col gap-y-[4px] w-[116px] justify-start">
         {types.map((poke) => (
           <span
             key={poke.type.name}
-            className="flex w-[64px] h-[24px] justify-center items-center px-[4px] text-[12px] text-center rounded-[4px]"
+            className="flex w-[64px] h-[24px] justify-center items-center px-[4px] text-[12px] text-center rounded-[4px] font-bold"
             style={{
               backgroundColor: getTypeColor(poke.type.name),
             }}
@@ -31,12 +33,12 @@ const PokemonRow = ({ id, name, sprite, types, stats }: PokemonRowProps) => {
           </span>
         ))}
       </td>
-      <td className="w-[116px]">
+      <td className="w-[84px]">
         <span>{total}</span>
       </td>
       <td className="flex">
         {stats?.map((poke) => (
-          <span key={poke.stat.name} className="w-[116px]">
+          <span key={poke.stat.name} className="w-[84px]">
             {poke.base_stat}
           </span>
         ))}

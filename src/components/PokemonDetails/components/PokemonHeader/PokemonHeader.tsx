@@ -40,7 +40,7 @@ const PokemonHeader = ({ id, name }: PokemonHeaderProps) => {
   };
 
   return (
-    <div className="flex flex-col w-[300px] md:w-[536px] lg:w-full h-[128px] justify-between items-center font-bold capitalize mb-[16px]">
+    <div className="flex flex-col w-[300px] sm:w-[400px] md:w-[536px] lg:w-full h-[128px] justify-between items-center font-bold capitalize mb-[16px]">
       <div className="flex w-full gap-x-[32px] lg:gap-x-[208px]">
         <Button
           className="flex rounded-[8px] justify-end text-[18px] lg:text-[24px] capitalize text-white bg-[#2b2b2b] [clip-path:polygon(15%_0,100%_0,100%_100%,15%_100%,0_50%)] hover:scale-105 transition-transform"
@@ -61,8 +61,9 @@ const PokemonHeader = ({ id, name }: PokemonHeaderProps) => {
             .padStart(4, "0")}`}</span>
         </Button>
       </div>
-      <div className="text-[24px] md:text-[28px] lg:text-[32px]">
-        {formattedId} {name}
+      <div className="flex justify-center items-center text-[24px] md:text-[28px] lg:text-[32px] gap-[16px]">
+        <span className="text-[#A4A4A4]">{formattedId}</span>
+        <span>{name}</span>
       </div>
     </div>
   );

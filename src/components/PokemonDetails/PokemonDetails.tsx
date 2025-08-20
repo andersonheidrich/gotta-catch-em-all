@@ -47,7 +47,7 @@ const PokemonDetails = () => {
 
   return (
     <div className="flex flex-col w-full min-h-screen justify-center items-center pt-[124px] pb-[32px] lg:pb-[0] bg-[#2b2b2b]">
-      <div className="flex-1 flex flex-col w-auto lg:w-[896px] justify-center items-center p-[4px] md:p-[16px] rounded-[8px] bg-white lg:mb-8">
+      <div className="flex-1 flex flex-col w-auto lg:w-[896px] justify-center items-center max-[375px]:px-[4px] p-[16px] rounded-[8px] bg-white lg:mb-8">
         <PokemonHeader id={pokemon.id} name={pokemon.name} />
         <div className="flex flex-col lg:flex-row w-full justify-center items-center gap-[16px]">
           <PokemonImage
@@ -55,7 +55,7 @@ const PokemonDetails = () => {
             alt={pokemon.name}
             background={typeColor}
           />
-          <div className="flex w-[300px] md:w-[440px] justify-center items-center">
+          <div className="flex w-[300px] sm:w-[400px] md:w-[440px] justify-center items-center">
             <div className="flex flex-col w-full justify-between h-auto md:h-[440px]">
               <PokemonStats stats={pokemon.stats} />
               <PokemonTypes types={pokemon.types} />

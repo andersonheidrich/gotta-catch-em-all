@@ -30,13 +30,13 @@ const PokemonEvolutions = ({ name }: PokemonEvolutionsProps) => {
   if (evolutions.length === 0) {
     return (
       <div className="flex w-full min-h-[312px] items-center justify-center">
-        <p>Sem evoluções</p>
+        <p>Carregando...</p>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col w-full p-2 mt-4 items-center bg-[#2b2b2b] rounded-[8px] justify-center text-white">
+    <div className="flex flex-col w-full p-2 mt-4 items-center bg-[#505050] rounded-[8px] justify-center text-white">
       <h2 className="text-xl font-bold mb-4">Evoluções</h2>
       <div className="flex flex-col flex-wrap md:flex-row w-full justify-center items-center">
         {evolutions.map((evoName, i) => {
