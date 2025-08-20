@@ -7,6 +7,7 @@ import {
   PokemonDetails,
   PokemonList,
 } from "./components";
+import ScrollToTop from "./components/ScrollToTop";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const AppRoutes = () => {
   return (
     <>
       {!shouldHideHeader && <Header />}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pokedex" element={<Pokedex />} />
