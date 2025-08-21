@@ -47,7 +47,7 @@ const pokemonSlice = createSlice({
       )
       .addCase(fetchAllPokemon.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload || "Erro desconhecido";
+        state.error = action.payload || "Erro unknown!";
       })
       .addCase(fetchPokemonEvolution.pending, (state) => {
         state.evolutions = [];
@@ -61,7 +61,7 @@ const pokemonSlice = createSlice({
       )
       .addCase(fetchPokemonEvolution.rejected, (state, action) => {
         state.loading = false;
-        state.error = (action.payload as string) || "Erro desconhecido";
+        state.error = (action.payload as string) || "Error unknown!";
       });
   },
 });

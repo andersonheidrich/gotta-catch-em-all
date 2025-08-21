@@ -5,8 +5,11 @@ import type { PokemonEvolutionsProps } from "./interfaces";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { getTypeColor } from "@/utils";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const PokemonEvolutions = ({ name }: PokemonEvolutionsProps) => {
+  const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { evolutions, pokemonList, loading } = useAppSelector(
@@ -22,7 +25,7 @@ const PokemonEvolutions = ({ name }: PokemonEvolutionsProps) => {
   if (loading && evolutions.length === 0) {
     return (
       <p className="flex w-full min-h-[312px] items-center justify-center">
-        Carregando evoluções...
+        {t("loading")}
       </p>
     );
   }
@@ -30,14 +33,16 @@ const PokemonEvolutions = ({ name }: PokemonEvolutionsProps) => {
   if (evolutions.length === 0) {
     return (
       <div className="flex w-full min-h-[312px] items-center justify-center">
-        <p>Carregando...</p>
+        <p>{t("loading")}</p>
       </div>
     );
   }
 
   return (
     <div className="flex flex-col w-full p-2 mt-4 items-center bg-[#505050] rounded-[8px] justify-center text-white">
-      <h2 className="text-xl font-bold mb-4">Evoluções</h2>
+      <h2 className="text-xl font-bold mb-4">
+        {t("pokemonDetails.evolutions")}
+      </h2>
       <div className="flex flex-col flex-wrap md:flex-row w-full justify-center items-center">
         {evolutions.map((evoName, i) => {
           const evo = pokemonList.find((p) => p.name === evoName);

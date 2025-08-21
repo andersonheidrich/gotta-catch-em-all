@@ -1,11 +1,14 @@
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="flex flex-col w-full p-[32px] lg:p-[64px] items-center">
-      <div className="font-bold text-[32px]">CONTATO</div>
+      <div className="font-bold text-[32px]">{t("footer.contact")}</div>
       <div className="flex flex-col lg:flex-row w-full justify-around items-center pt-[64px] px-[64px]">
         <div className="flex flex-col items-center w-[240px]">
           <a

@@ -1,8 +1,11 @@
 import { usePokemonList } from "@/hooks/usePokemonList";
 import PokemonRow from "./PokemonRow";
 import { GenerationFilter } from "@/components";
+import { useTranslation } from "react-i18next";
 
 const PokemonList = () => {
+  const { t } = useTranslation();
+
   const {
     selectedGen,
     setSelectedGen,
@@ -22,28 +25,32 @@ const PokemonList = () => {
           <thead className="border-y border-[#cacaca] bg-[#EBEBEB]">
             <tr className="flex py-[16px] justify-start">
               <th className="flex w-[80px] ml-[48px]">#</th>
-              <th className="flex w-[160px]">Name</th>
-              <th className="flex w-[116px]">Type</th>
-              <th className="flex w-[84px]">Total</th>
-              <th className="flex w-[84px]">HP</th>
-              <th className="flex w-[84px]">Attack</th>
-              <th className="flex w-[84px]">Defense</th>
-              <th className="flex w-[84px]">Sp. Atk</th>
-              <th className="flex w-[84px]">Sp. Def</th>
-              <th className="flex w-[84px]">Speed</th>
+              <th className="flex w-[160px]">{t("pokemonDetails.name")}</th>
+              <th className="flex w-[116px]">{t("pokemonDetails.type")}</th>
+              <th className="flex w-[84px]">{t("pokemonDetails.total")}</th>
+              <th className="flex w-[84px]">{t("pokemonDetails.hp")}</th>
+              <th className="flex w-[84px]">{t("pokemonDetails.attack")}</th>
+              <th className="flex w-[84px]">{t("pokemonDetails.defense")}</th>
+              <th className="flex w-[84px]">
+                {t("pokemonDetails.specialAttack")}
+              </th>
+              <th className="flex w-[84px]">
+                {t("pokemonDetails.specialDefense")}
+              </th>
+              <th className="flex w-[84px]">{t("pokemonDetails.speed")}</th>
             </tr>
           </thead>
           <tbody>
             {loading ? (
               <tr>
                 <td className="flex h-screen justify-center pt-64">
-                  Carregando...
+                  {t("loading")}
                 </td>
               </tr>
             ) : error ? (
               <tr>
                 <td className="flex h-screen justify-center items-center">
-                  Erro: {error}
+                  {t("error")}: {error}
                 </td>
               </tr>
             ) : (
