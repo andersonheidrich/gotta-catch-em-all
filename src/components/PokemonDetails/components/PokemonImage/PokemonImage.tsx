@@ -7,6 +7,7 @@ const PokemonImage = ({ src, alt, background }: PokemonImageProps) => {
       style={{ background }}
       src={src}
       alt={alt}
+      loading="lazy"
     />
   );
 };

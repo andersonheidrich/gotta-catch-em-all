@@ -14,7 +14,7 @@ const PokemonCard = ({ id, name, sprite, types }: PokemonCardProps) => {
         }}
       >
         <Link to={`/${name.toLowerCase()}`}>
-          <img className="w-full" src={sprite} alt={name} />
+          <img className="w-full" src={sprite} alt={name} loading="lazy" />
         </Link>
       </div>
       <div className="flex flex-col">

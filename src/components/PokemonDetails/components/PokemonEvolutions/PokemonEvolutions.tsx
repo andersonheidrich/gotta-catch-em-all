@@ -60,6 +60,7 @@ const PokemonEvolutions = ({ name }: PokemonEvolutionsProps) => {
                         src={evo.sprite}
                         alt={evo.name}
                         className="w-32 h-32"
+                        loading="lazy"
                       />
                     </div>
                   </div>

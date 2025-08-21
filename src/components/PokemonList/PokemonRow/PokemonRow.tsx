@@ -8,7 +8,12 @@ const PokemonRow = ({ id, name, sprite, types, stats }: PokemonRowProps) => {
   return (
     <tr className="flex w-full h-[64px] items-center border-b-[1px] capitalize">
       <td className="flex items-center w-[128px]">
-        <img className="w-[32px] h-[32px]" src={sprite} alt={name} />
+        <img
+          className="w-[32px] h-[32px]"
+          src={sprite}
+          alt={name}
+          loading="lazy"
+        />
         <span className="w-[80px] ml-[16px]">
           Nº {id.toString().padStart(4, "0")}
         </span>

@@ -31,7 +31,7 @@ const ScrollToTopButton = () => {
           onClick={scrollToTop}
           className="fixed min-[800px]:bottom-3 min-[800px]:right-3 min-[800px]:p-3 rounded-full bg-white hover:bg-red-700 transition cursor-pointer"
         >
-          <img src={PokeArrow} className="w-8 h-8" />
+          <img src={PokeArrow} className="w-8 h-8" loading="lazy" />
         </button>
       )}
     </>
