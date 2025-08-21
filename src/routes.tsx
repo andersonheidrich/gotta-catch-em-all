@@ -6,8 +6,8 @@ import {
   Pokedex,
   PokemonDetails,
   PokemonList,
+  ScrollToTop,
 } from "./components";
-import ScrollToTop from "./components/ScrollToTop";
 
 const AppRoutes = () => {
   const location = useLocation();

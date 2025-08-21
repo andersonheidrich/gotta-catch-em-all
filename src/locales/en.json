@@ -1,0 +1,31 @@
+{
+  "navbar": {
+    "menu": {
+      "home": "Home",
+      "pokedex": "Pokédex",
+      "pokemonList": "Pokémon List"
+    }
+  },
+  "footer": {
+    "contact": "Contact"
+  },
+  "loading": "Loading...",
+  "error": "Error",
+  "pokemonGeneration": { "all": "All", "gen": "Gen" },
+  "pokemonDetails": {
+    "name": "Name",
+    "stats": "Stats",
+    "total": "Total",
+    "hp": "HP",
+    "attack": "Attack",
+    "defense": "Defense",
+    "specialAttack": "Sp. Atk",
+    "specialDefense": "Sp. Def",
+    "speed": "Speed",
+    "type": "Type",
+    "height": "Height",
+    "weight": "Weight",
+    "abilities": "Abilities",
+    "evolutions": "Evolutions"
+  }
+}

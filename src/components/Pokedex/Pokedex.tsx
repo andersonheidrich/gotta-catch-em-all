@@ -1,8 +1,11 @@
 import { usePokemonList } from "@/hooks/usePokemonList";
 import PokemonCard from "./PokemonCard";
 import { GenerationFilter } from "@/components";
+import { useTranslation } from "react-i18next";
 
 const Pokedex = () => {
+  const { t } = useTranslation();
+
   const {
     selectedGen,
     setSelectedGen,
@@ -19,9 +22,11 @@ const Pokedex = () => {
       <GenerationFilter selectedGen={selectedGen} onChange={setSelectedGen} />
       <div className="flex flex-wrap w-[224px] min-[640px]:w-[440px] min-[768px]:w-[656px] min-[1024px]:w-[872px] min-[1280px]:w-[1088px] min-[1536px]:w-[1304px] min-h-screen justify-center gap-[16px] p-[12px] rounded-[8px] bg-white capitalize justify-start">
         {loading ? (
-          <div>Carregando...</div>
+          <div>{t("loading")}</div>
         ) : error ? (
-          <div>Erro: {error}</div>
+          <div>
+            {t("error")}: {error}
+          </div>
         ) : (
           pokemonList.slice(0, visibleCount).map((poke) => (
             <div key={poke.name} className="w-[200px]">

@@ -51,7 +51,7 @@ export const fetchAllPokemon = createAsyncThunk<
 
     return validPokemons;
   } catch (error: any) {
-    return rejectWithValue(error.message || "Erro ao carregar Pokémon");
+    return rejectWithValue(error.message || "Error loading Pokémon!");
   }
 });
 
@@ -78,6 +78,6 @@ export const fetchPokemonEvolution = createAsyncThunk<
 
     return evolutions;
   } catch (error: any) {
-    return rejectWithValue(error.message || "Erro ao buscar evolução");
+    return rejectWithValue(error.message || "Error loading evolution!");
   }
 });

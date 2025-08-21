@@ -5,15 +5,18 @@ import { fetchAllPokemon } from "@/store/slices/pokemon";
 import { getTypeColor } from "../../utils";
 
 import {
+  PokemonEvolutions,
   PokemonHeader,
   PokemonImage,
   PokemonInfo,
   PokemonStats,
   PokemonTypes,
 } from "./components";
-import PokemonEvolutions from "./components/PokemonEvolutions";
+import { useTranslation } from "react-i18next";
 
 const PokemonDetails = () => {
+  const { t } = useTranslation();
+
   const { name } = useParams();
   const dispatch = useAppDispatch();
 
@@ -29,17 +32,13 @@ const PokemonDetails = () => {
 
   if (loading) {
     return (
-      <p className="flex h-full justify-center items-center">
-        Carregando Pokémon...
-      </p>
+      <p className="flex h-full justify-center items-center">{t("loading")}</p>
     );
   }
 
   if (error || !pokemon) {
     return (
-      <p className="flex h-full justify-center items-center">
-        Erro ao carregar Pokémon.
-      </p>
+      <p className="flex h-full justify-center items-center">{t("error")}</p>
     );
   }
 

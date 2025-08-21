@@ -8,7 +8,7 @@ const PokemonCard = ({ id, name, sprite, types }: PokemonCardProps) => {
   return (
     <div className="mb-[40px]">
       <div
-        className="flex flex-col w-[200px] h-[200px] justify-center items-center rounded-[8px] cursor-pointer hover:scale-103 transition-transform duration-250"
+        className="flex flex-col w-[200px] h-[200px] justify-center items-center rounded-[8px] cursor-pointer hover:scale-103 transition-transform duration-300"
         style={{
           background: `${typeColor}`,
         }}

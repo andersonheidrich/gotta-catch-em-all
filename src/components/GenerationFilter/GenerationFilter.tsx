@@ -1,6 +1,9 @@
+import { useTranslation } from "react-i18next";
 import type { GenerationFilterProps } from "./interfaces";
 
 const GenerationFilter = ({ selectedGen, onChange }: GenerationFilterProps) => {
+  const { t } = useTranslation();
+
   const numberOfGenerations = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
@@ -13,7 +16,7 @@ const GenerationFilter = ({ selectedGen, onChange }: GenerationFilterProps) => {
             : "bg-gray-200 hover:bg-gray-300"
         }`}
       >
-        All
+        {t("pokemonGeneration.all")}
       </button>
 
       {numberOfGenerations.map((gen) => (
@@ -26,7 +29,7 @@ const GenerationFilter = ({ selectedGen, onChange }: GenerationFilterProps) => {
               : "bg-gray-200 hover:bg-gray-300"
           }`}
         >
-          Gen {gen}
+          {t("pokemonGeneration.gen")} {gen}
         </button>
       ))}
     </div>
