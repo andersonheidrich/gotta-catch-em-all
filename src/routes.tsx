@@ -7,6 +7,7 @@ import {
   PokemonDetails,
   PokemonList,
   ScrollToTop,
+  ScrollToTopButton,
 } from "./components";
 
 const AppRoutes = () => {
@@ -26,6 +27,7 @@ const AppRoutes = () => {
         <Route path="/pokemon-list" element={<PokemonList />} />
         <Route path="/:name" element={<PokemonDetails />} />
       </Routes>
+      <ScrollToTopButton />
       <Footer />
     </>
   );

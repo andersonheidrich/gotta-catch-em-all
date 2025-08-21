@@ -5,4 +5,4 @@ export { default as Header } from "./Header";
 export { default as Pokedex } from "./Pokedex";
 export { default as PokemonDetails } from "./PokemonDetails";
 export { default as PokemonList } from "./PokemonList";
-export { default as ScrollToTop } from "./ScrollToTop";
+export { ScrollToTop, ScrollToTopButton } from "./ScrollToTop";
