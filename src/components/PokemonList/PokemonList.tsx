@@ -1,6 +1,6 @@
-import { usePokemonList } from "@/hooks/usePokemonList";
+import { usePokemonListFiltered } from "@/hooks";
 import PokemonRow from "./PokemonRow";
-import { GenerationFilter } from "@/components";
+import { Filter, GenerationFilter } from "@/components";
 import { useTranslation } from "react-i18next";
 
 const PokemonList = () => {
@@ -9,16 +9,19 @@ const PokemonList = () => {
   const {
     selectedGen,
     setSelectedGen,
-    pokemonList,
     visibleCount,
     loading,
     error,
     hasMore,
     sentinelRef,
-  } = usePokemonList();
+    searchTerm,
+    setSearchTerm,
+    filteredPokemon,
+  } = usePokemonListFiltered();
 
   return (
     <div className="flex flex-col w-full pt-[124px] pb-[64px] justify-center items-center bg-[#2b2b2b]">
+      <Filter searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <GenerationFilter selectedGen={selectedGen} onChange={setSelectedGen} />
       <div className="overflow-x-auto w-full max-w-[1024px] mt-3 justify-center bg-white rounded-0 lg:rounded-[8px]">
         <table className="m-4">
@@ -54,7 +57,7 @@ const PokemonList = () => {
                 </td>
               </tr>
             ) : (
-              pokemonList
+              filteredPokemon
                 .slice(0, visibleCount)
                 .map((poke) => (
                   <PokemonRow

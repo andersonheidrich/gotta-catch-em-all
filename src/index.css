@@ -41,8 +41,7 @@ a:visited {
   color: inherit;
 }
 
-*::selection {
-}
+/* *::selection {} */
 
 ul,
 ol {
