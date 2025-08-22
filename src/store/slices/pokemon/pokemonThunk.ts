@@ -9,6 +9,14 @@ export const fetchAllPokemon = createAsyncThunk<
   { rejectValue: string }
 >("pokemon/fetchAll", async (generationId, { rejectWithValue }) => {
   try {
+    const cacheKey =
+      generationId === "all" ? "pokemon_all" : `pokemon_gen_${generationId}`;
+    const cached = localStorage.getItem(cacheKey);
+
+    if (cached) {
+      return JSON.parse(cached) as PokemonData[];
+    }
+
     let species: any[] = [];
 
     if (generationId === "all") {
@@ -47,6 +55,8 @@ export const fetchAllPokemon = createAsyncThunk<
 
     const validPokemons = detailed.filter(Boolean) as PokemonData[];
     validPokemons.sort((a, b) => a.id - b.id);
+
+    localStorage.setItem(cacheKey, JSON.stringify(validPokemons));
 
     return validPokemons;
   } catch (error: any) {
