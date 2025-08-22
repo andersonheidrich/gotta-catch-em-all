@@ -42,14 +42,16 @@ Imagens oficiais
 Acesse a aplicação online em: https://gotta-catch-em-all-heidrich.vercel.app/
 
 # 📦 Como rodar localmente
-## Clone o repositório
+
+```bash
+# Clone o repositório
 git clone https://github.com/seu-usuario/gotta-catch-em-all.git
 
-## Acesse a pasta do projeto
+# Acesse a pasta do projeto
 cd gotta-catch-em-all
 
-## Instale as dependências
+# Instale as dependências
 npm install
 
-## Execute o projeto
+# Execute o projeto
 npm run dev
