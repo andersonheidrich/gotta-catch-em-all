@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 
 interface InfiniteScrollOptions {
-  root?: HTMLElement | null; // container do scroll, null = window
-  rootMargin?: string; // margem antes de disparar
-  threshold?: number; // quando considerar visível
+  root?: HTMLElement | null;
+  rootMargin?: string;
+  threshold?: number;
 }
 
 export const useInfiniteScroll = (

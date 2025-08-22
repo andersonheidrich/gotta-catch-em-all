@@ -3,7 +3,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { pokeAPI } from "@/services/pokeAPI";
 import type { PokemonData } from "@/types/pokemon";
 
-// Buscar todos os pokemons
 export const fetchAllPokemon = createAsyncThunk<
   PokemonData[],
   number | "all",
@@ -55,7 +54,6 @@ export const fetchAllPokemon = createAsyncThunk<
   }
 });
 
-// Buscar cadeia de evolução
 export const fetchPokemonEvolution = createAsyncThunk<
   string[],
   string,
