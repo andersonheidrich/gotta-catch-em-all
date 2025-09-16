@@ -1,6 +1,5 @@
 import { usePokemonListFiltered } from "@/hooks";
-import PokemonCard from "./PokemonCard";
-import { Filter, GenerationFilter } from "@/components";
+import { Filter, GenerationFilter, PokemonCard } from "@/components";
 import { useTranslation } from "react-i18next";
 
 const Pokedex = () => {
@@ -23,7 +22,7 @@ const Pokedex = () => {
     <div className="flex flex-col pt-[124px] pb-[64px] justify-center items-center bg-[#2b2b2b]">
       <Filter searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <GenerationFilter selectedGen={selectedGen} onChange={setSelectedGen} />
-      <div className="flex flex-wrap w-[224px] min-[640px]:w-[440px] min-[768px]:w-[656px] min-[1024px]:w-[872px] min-[1280px]:w-[1088px] min-[1536px]:w-[1304px] min-h-screen justify-center gap-[16px] p-[12px] rounded-[8px] bg-white capitalize justify-start">
+      <div className="flex flex-wrap w-[224px] min-[640px]:w-[440px] min-[768px]:w-[656px] min-[1024px]:w-[872px] min-[1280px]:w-[1088px] min-[1536px]:w-[1304px] min-h-screen justify-start gap-[16px] p-[12px] rounded-[8px] bg-white capitalize">
         {loading ? (
           <div>{t("loading")}</div>
         ) : error ? (
