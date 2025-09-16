@@ -1,69 +1,57 @@
-# React + TypeScript + Vite
+# 📘 Pokédex
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação web interativa que permite explorar informações detalhadas sobre os Pokémon.
+O projeto foi desenvolvido com foco em performance, responsividade e boas práticas de desenvolvimento front-end.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+⚡ Vite – ambiente de desenvolvimento rápido e otimizado
 
-## Expanding the ESLint configuration
+⚛️ React + TypeScript – componentes tipados e escaláveis
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+📦 Redux – gerenciamento de estado global
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🎨 Tailwind CSS + MUI – interface moderna e responsiva
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+🌐 i18next – suporte a múltiplos idiomas
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+▲ Vercel – deploy contínuo e hospedagem confiável
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📌 Funcionalidades
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+📖 Listagem completa de todos os Pokémon
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🔍 Pesquisa por nome
+
+🌍 Filtro por geração
+
+🏷️ Detalhes individuais de cada Pokémon:
+
+Tipos
+
+Status base (HP, Ataque, Defesa, etc.)
+
+Evoluções
+
+Imagens oficiais
+
+📱 Layout responsivo (desktop e mobile)
+
+## 🌍 Deploy
+
+Acesse a aplicação online em: https://gotta-catch-em-all-heidrich.vercel.app/
+
+# 📦 Como rodar localmente
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/gotta-catch-em-all.git
+
+# Acesse a pasta do projeto
+cd gotta-catch-em-all
+
+# Instale as dependências
+npm install
+
+# Execute o projeto
+npm run dev
