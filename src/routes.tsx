@@ -1,14 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import Home from "./page/Home";
-import {
-  Footer,
-  Header,
-  Pokedex,
-  PokemonDetails,
-  PokemonList,
-  ScrollToTop,
-  ScrollToTopButton,
-} from "./components";
+import { Home, Pokedex, PokemonDetails, PokemonList } from "./views";
+import { Footer, Header, ScrollToTop, ScrollToTopButton } from "./components";
 
 const AppRoutes = () => {
   const location = useLocation();

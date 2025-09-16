@@ -1,5 +1,5 @@
 import Pokeball from "./Pokeball";
-import GottaCatchEmAll from "../images/gottacatchemall.png";
+import GottaCatchEmAll from "../../images/gottacatchemall.png";
 
 const Home = () => {
   return (

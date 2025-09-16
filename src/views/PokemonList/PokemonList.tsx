@@ -1,5 +1,5 @@
 import { usePokemonListFiltered } from "@/hooks";
-import PokemonRow from "./PokemonRow";
+import PokemonRow from "../../components/PokemonRow";
 import { Filter, GenerationFilter } from "@/components";
 import { useTranslation } from "react-i18next";
 
